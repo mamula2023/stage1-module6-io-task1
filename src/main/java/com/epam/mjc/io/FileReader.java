@@ -21,14 +21,12 @@ public class FileReader{
                 StringTokenizer tokenizer = new StringTokenizer(line);
                 while(tokenizer.hasMoreTokens()){
                     String word = tokenizer.nextToken();
-                    if(word.equals(nameKey))
-                        Name = tokenizer.nextToken();
-                    if(word.equals(emailKey))
-                        Email = tokenizer.nextToken();
-                    if(word.equals(ageKey))
-                        Age = Integer.parseInt(tokenizer.nextToken());
-                    if (word.equals(phoneKey))
-                        Phone = Long.parseLong(tokenizer.nextToken());
+                    switch (word) {
+                        case nameKey: Name = tokenizer.nextToken(); break;
+                        case emailKey: Email = tokenizer.nextToken(); break;
+                        case ageKey: Age = Integer.parseInt(tokenizer.nextToken()); break;
+                        case phoneKey: Phone = Long.parseLong(tokenizer.nextToken());
+                    }
                 }
             }
         }catch(Exception e){
