@@ -11,10 +11,10 @@ public class FileReader{
         final String emailKey = "Email:";
         final String ageKey = "Age:";
         final String phoneKey = "Phone:";
-        String Name = "";
-        String Email = "";
-        int Age = 0;
-        long Phone = 0;
+        String name = "";
+        String email = "";
+        int age = 0;
+        long phone = 0;
         try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))){
             String line;
             while((line = reader.readLine()) != null){
@@ -22,17 +22,19 @@ public class FileReader{
                 while(tokenizer.hasMoreTokens()){
                     String word = tokenizer.nextToken();
                     switch (word) {
-                        case nameKey: Name = tokenizer.nextToken(); break;
-                        case emailKey: Email = tokenizer.nextToken(); break;
-                        case ageKey: Age = Integer.parseInt(tokenizer.nextToken()); break;
-                        case phoneKey: Phone = Long.parseLong(tokenizer.nextToken());
-                        default: break;
+                        case nameKey: name = tokenizer.nextToken(); break;
+                        case emailKey: email = tokenizer.nextToken(); break;
+                        case ageKey: age = Integer.parseInt(tokenizer.nextToken()); break;
+                        case phoneKey: phone = Long.parseLong(tokenizer.nextToken()); break;
+                        default:
+                            System.out.println("its okay");
+                            break;
                     }
                 }
             }
         }catch(Exception e){
             e.printStackTrace();
         }
-        return new Profile(Name, Age, Email, Phone);
+        return new Profile(name, age, email, phone);
     }
 }
