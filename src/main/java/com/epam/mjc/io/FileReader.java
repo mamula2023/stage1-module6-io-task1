@@ -7,6 +7,10 @@ import java.util.StringTokenizer;
 
 public class FileReader{
     public Profile getDataFromFile(File file) {
+        final String nameKey = "Name:";
+        final String emailKey = "Email:";
+        final String ageKey = "Age:";
+        final String phoneKey = "Phone:";
         String Name = "";
         String Email = "";
         int Age = 0;
@@ -17,13 +21,13 @@ public class FileReader{
                 StringTokenizer tokenizer = new StringTokenizer(line);
                 while(tokenizer.hasMoreTokens()){
                     String word = tokenizer.nextToken();
-                    if(word.equals("Name:"))
+                    if(word.equals(nameKey))
                         Name = tokenizer.nextToken();
-                    if(word.equals("Email:"))
+                    if(word.equals(emailKey))
                         Email = tokenizer.nextToken();
-                    if(word.equals("Age:"))
+                    if(word.equals(ageKey))
                         Age = Integer.parseInt(tokenizer.nextToken());
-                    if (word.equals("Phone:"))
+                    if (word.equals(phoneKey))
                         Phone = Long.parseLong(tokenizer.nextToken());
                 }
             }
