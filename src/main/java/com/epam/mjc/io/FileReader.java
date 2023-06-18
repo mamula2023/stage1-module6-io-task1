@@ -26,6 +26,7 @@ public class FileReader{
                         case emailKey: Email = tokenizer.nextToken(); break;
                         case ageKey: Age = Integer.parseInt(tokenizer.nextToken()); break;
                         case phoneKey: Phone = Long.parseLong(tokenizer.nextToken());
+                        default: break;
                     }
                 }
             }
